@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="502b6c8e-dbbb-41e1-ba4e-fc6e18e1ead4" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/itplaza/composer.json</pharConfigPath>
+    <execution>
+      <executable path="composer" />
+    </execution>
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="bdbe242d-6086-4f11-b717-0c23b145cb4c" name="MAMP" port="8888" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$" remote-root="http://localhost:8888/mysite" />
+        </path_mappings>
+      </server>
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="D:\SOFT\PHP\php-8.4.5-nts\php.exe">
+    <include_path>
+      <path value="$PROJECT_DIR$/itplaza/vendor/composer" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/league/config" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/league/flysystem-local" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/league/uri" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/league/uri-interfaces" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/staabm/side-effects-detector" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/laravel/pail" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/laravel/pint" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/laravel/prompts" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/laravel/sail" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/polyfill-uuid" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/carbonphp/carbon-doctrine-types" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/fruitcake/php-cors" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/guzzlehttp/uri-template" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/nunomaduro/termwind" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/itplaza/vendor/graham-campbell/result-type" />
+    </include_path>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2viOK7SO0Nk0LS9fAlzupxpNqLD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MAMP/htdocs/itplaza/resources/views&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\SOFT\\PHP\\PhpStorm 2024.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MAMP\htdocs\itplaza\resources\views" />
+      <recent name="D:\MAMP\htdocs\itplaza\resources\views\layouts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MAMP\htdocs\itplaza\resources\views" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner configuration_file="$PROJECT_DIR$/itplaza/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154" />
+        <option value="bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="502b6c8e-dbbb-41e1-ba4e-fc6e18e1ead4" name="Changes" comment="" />
+      <created>1744624360527</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744624360527</updated>
+      <workItem from="1744624361698" duration="3149000" />
+      <workItem from="1744716894429" duration="5252000" />
+      <workItem from="1744725185003" duration="349000" />
+      <workItem from="1744725557555" duration="1066000" />
+      <workItem from="1744726667406" duration="168000" />
+      <workItem from="1744726857196" duration="861000" />
+      <workItem from="1744810995702" duration="5757000" />
+      <workItem from="1744875428097" duration="13095000" />
+      <workItem from="1745332371591" duration="332000" />
+      <workItem from="1745395196411" duration="4549000" />
+      <workItem from="1745417375591" duration="1804000" />
+      <workItem from="1745561430724" duration="4119000" />
+      <workItem from="1745648460295" duration="14103000" />
+      <workItem from="1745675402138" duration="17215000" />
+      <workItem from="1745994459175" duration="1536000" />
+      <workItem from="1746428767535" duration="10647000" />
+      <workItem from="1747033505896" duration="3588000" />
+      <workItem from="1747644090841" duration="13067000" />
+      <workItem from="1748082798368" duration="15988000" />
+      <workItem from="1748347002028" duration="1174000" />
+      <workItem from="1748412275182" duration="18666000" />
+      <workItem from="1749548222093" duration="6483000" />
+      <workItem from="1749556220908" duration="20369000" />
+      <workItem from="1749716691166" duration="94945000" />
+      <workItem from="1750404179530" duration="64236000" />
+      <workItem from="1750917374936" duration="13521000" />
+      <workItem from="1751031008643" duration="26493000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/itplaza/vite.config.js</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/itplaza/app/Http/Requests/ContactRequest.php</url>
+          <line>45</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
