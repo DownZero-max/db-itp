@@ -144,6 +144,8 @@
         $(document).ready(function () {
             const table = $('#orders-table').DataTable({
                 scrollX: true,
+                scrollY: '260px',
+                scrollCollapse: true,
                 autoWidth: false,
                 paging: false,
                 searching: false,

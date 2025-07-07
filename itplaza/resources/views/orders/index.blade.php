@@ -4,10 +4,10 @@
 
 @section('content')
 
-    <div class="w-100" style="margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column;">
+    <div class="w-100" style="margin: 0; padding: 0; height: 90vh; display: flex; flex-direction: column;">
 
     <!-- Верхняя часть: таблица заказов -->
-        <div class="border rounded bg-white overflow-auto p-2" style="flex: 1 1 30%;">
+        <div class="border rounded bg-white overflow-hidden p-2" style="height: 300px;">
             <table id="orders-table" class="table table-bordered table-sm align-middle text-center mb-0" style="width:100%">
                 <thead class="table-light">
                 <tr>
@@ -52,7 +52,7 @@
             </table>
         </div>
 
-        <div class="border rounded bg-light p-3 d-flex gap-3" style="flex: 1 1 50%; overflow-y: visible;">
+        <div class="border rounded bg-light p-3 d-flex gap-3" style="flex: 1 1 40%; overflow-y: visible;">
         <div style="width: 90px;" class="d-flex flex-column gap-0">
                 <input type="text" class="form-control form-control-sm px-0 py-0" placeholder="barcode">
                 <button class="btn btn-outline-secondary btn-sm px-0 py-0">...</button>
@@ -67,7 +67,7 @@
                     <label class="form-check-label small" for="himselfCheck">Cost Pr.</label>
                 </div>
             </div>
-            <div class="d-flex flex-column" style="height: 100%;">
+            <div class="d-flex flex-column flex-grow-1" style="height: 100%; width: 100%;">
                 <!-- Верх: логотип и кнопки -->
                 <div class="d-flex align-items-center justify-content-between bg-white p-2 border-bottom mb-3">
                     <div class="d-flex align-items-center gap-2">
@@ -82,8 +82,8 @@
                 </div>
 
                 <!-- Центр: текст -->
-                <div class="flex-grow-1 overflow-auto mb-2">
-                    <table class="table table-bordered table-sm mb-0 text-center align-middle resizable-columns resizable" data-resizable-columns-id="order-details" id="order-details-table">
+                <div class="flex-grow-1 overflow-auto mb-2 w-100" style="min-width: 100%;">
+                    <table class="table table-bordered table-sm mb-0 text-center align-middle resizable-columns resizable" data-resizable-columns-id="order-details" id="order-details-table" style="width: 100%;">
                         <thead class="table-light">
                         <tr>
                             <th data-resizable-column-id="name">Name</th>
@@ -239,6 +239,21 @@
             </div>
         </div>
     </div>
+<style>
+    #order-details-table {
+        width: 100% !important;
+        table-layout: auto !important;
+        }
+
+    #order-details-table th,
+    #order-details-table td {
+        white-space: nowrap;
+        }
+
+    .flex-grow-1.overflow-auto.mb-2 {
+        width: 100% !important;
+    }
+</style>
 @endsection
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -250,5 +265,56 @@
        deliveryCheckbox.addEventListener('change', function () {
            deliveryFields.classList.toggle('d-none', !this.checked);
        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('saveOrderBtn').addEventListener('click', function () {
+            const date = document.querySelector('input[name="date"]').value;
+            const dateCompleted = document.querySelector('input[name="date_completed"]').value;
+            const name = document.querySelector('input[name="name"]').value;
+            const phone = document.querySelector('input[name="phone"]').value;
+
+            const payment = document.getElementById('paymentCheck').checked;
+            const transfer = document.getElementById('transferCheck').checked;
+            const check = document.getElementById('checkCheck').checked;
+            const wrong = document.getElementById('wrongCheck').checked;
+            const verified = document.getElementById('verifiedCheck').checked;
+            const delivery = document.getElementById('deliveryCheck').checked;
+            const address = delivery ? document.querySelector('input[name="address"]').value : '';
+            const aboutDelivery = delivery ? document.querySelector('input[name="time"]').value : '';
+
+            // Подсчет нового ID
+            const tableBody = document.querySelector('#orders-table tbody');
+            const nextId = tableBody.rows.length + 1;
+
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${nextId}</td>
+                <td>${date}</td>
+                <td>${dateCompleted}</td>
+                <td>${name}</td>
+                <td>${phone}</td>
+                <td>${payment ? '$' : ''}</td>
+                <td>${transfer ? '⮳' : ''}</td>
+                <td>${check ? '🧾' : ''}</td>
+                <td>${wrong ? '🧱' : ''}</td>
+                <td>${verified ? '✔' : ''}</td>
+                <td>${wrong || !verified ? '🚩' : ''}</td>
+                <td>-</td>
+                <td>${delivery ? '✈' : ''}</td>
+                <td>${address}</td>
+                <td>${aboutDelivery}</td>
+            `;
+            tableBody.appendChild(tr);
+
+            // Уведомляем DataTables, что появилась строка
+            $('#orders-table').DataTable().row.add($(tr)).draw();
+
+            // Закрываем модалку вручную
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addOrderModal'));
+            modal.hide();
+
+        });
     });
 </script>
