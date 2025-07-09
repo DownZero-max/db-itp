@@ -143,6 +143,9 @@
 
         $(document).ready(function () {
             const table = $('#orders-table').DataTable({
+                scrollX: true,
+                scrollY: '260px',
+                scrollCollapse: true,
                 autoWidth: false,
                 paging: false,
                 searching: false,
@@ -151,10 +154,6 @@
                     { width: '80px', targets: 0 },
                     { width: '120px', targets: 1 }
                 ]
-            });
-
-            $('#orders-table').resizableColumns({
-                store: window.store
             });
 
             makeColumnsResizable(document.querySelector('.dataTables_scrollHeadInner > table'));
