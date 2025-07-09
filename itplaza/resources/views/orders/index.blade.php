@@ -8,7 +8,10 @@
 
     <!-- Верхняя часть: таблица заказов -->
         <div class="border rounded bg-white overflow-hidden p-2" style="height: 300px;">
-            <table id="orders-table" class="table table-bordered table-sm align-middle text-center mb-0" style="width:100%">
+            <table id="orders-table"
+                   class="table table-bordered table-sm align-middle text-center mb-0 resizable-columns resizable"
+                   data-resizable-columns-id="orders-main"
+                   style="width:100%">
                 <thead class="table-light">
                 <tr>
                     <th>ID</th>
@@ -252,6 +255,10 @@
 
     .flex-grow-1.overflow-auto.mb-2 {
         width: 100% !important;
+    }
+
+    #orders-table {
+        table-layout: fixed !important;
     }
 </style>
 @endsection
