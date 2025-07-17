@@ -267,6 +267,10 @@
         background-color: #fff;
         z-index: 100;
     }
+
+    .dataTables_scrollBody tbody tr.selected td {
+        background-color: #cce5ff !important;
+    }
 </style>
 @endsection
 <script>
