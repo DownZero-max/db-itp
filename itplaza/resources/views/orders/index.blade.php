@@ -7,7 +7,7 @@
     <div class="w-100" style="margin: 0; padding: 0; height: 90vh; display: flex; flex-direction: column;">
 
     <!-- Верхняя часть: таблица заказов -->
-        <div class="border rounded bg-white overflow-y-auto overflow-x-hidden p-2" style="height: 300px; position: relative;">
+        <div class="border rounded bg-white overflow-y-auto overflow-x-hidden px-2 pb-2" style="height: 300px; position: relative;">
             <table id="orders-table"
                    class="table table-bordered table-sm align-middle text-center mb-0 resizable-columns resizable"
                    data-resizable-columns-id="orders-main"
@@ -264,8 +264,8 @@
     #orders-table thead th {
         position: sticky;
         top: 0;
-        background-color: #fff; /* чтобы фон был непрозрачным */
-        z-index: 1500;          /* увеличенное значение */
+        background-color: #fff;
+        z-index: 100;
     }
 </style>
 @endsection
