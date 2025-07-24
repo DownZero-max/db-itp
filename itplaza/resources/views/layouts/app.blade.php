@@ -142,6 +142,20 @@
         }
 
         $(document).ready(function () {
+            var orderDetailsStore = {};
+            const itemTemplate = [
+                { name: 'Processor',       warranty: 11 },
+                { name: 'Mainboard',       warranty: 6  },
+                { name: 'Cooler',          warranty: 0  },
+                { name: 'Ram',             warranty: 11 },
+                { name: 'Case',            warranty: 0  },
+                { name: 'HDD',             warranty: 11 },
+                { name: 'Keyboard',        warranty: 0  },
+                { name: 'Mouse',           warranty: 0  },
+                { name: 'Monitor',         warranty: 11 },
+                { name: 'Video card',      warranty: 0  },
+                { name: 'Cables',          warranty: 0  }
+            ];
             const table = $('#orders-table').DataTable({
                 autoWidth: false,
                 paging: false,
@@ -153,16 +167,90 @@
                 ]
             });
 
+            table.on('click', 'tbody tr', function() {
+                console.log('Row clicked:', this);
+                alert('Клик пойман!');  // визуальная проверка
+            });
+
             $('#orders-table tbody').on('click', 'tr', function () {
                 $('#orders-table tbody tr').removeClass('selected');
                 $(this).addClass('selected');
+
+                const orderId = $(this).children('td').first().text().trim();
+                if (!orderId) return;
+
+                renderDetailsForOrder(orderId);
             });
 
-            $('#orders-table').resizableColumns({
-                store: window.store
+            $('#order-details-table tbody').on('input', 'input[data-field]', function() {
+                const field = this.dataset.field;
+                const rowIndex = parseInt(this.dataset.row, 10);
+                const selectedOrderRow = $('#orders-table tbody tr.selected').first();
+                if (!selectedOrderRow.length) return;
+                const orderId = selectedOrderRow.children('td').first().text().trim();
+                if (!orderId) return;
+
+                const record = orderDetailsStore[orderId][rowIndex];
+                if (field === 'sales_price' || field === 'quantity') {
+                    record[field] = this.value === '' ? 0 : Number(this.value);
+                } else {
+                    record[field] = this.value;
+                }
             });
 
+            $('#detailsSaveBtn').on('click', function() {
+                const selectedOrderRow = $('#orders-table tbody tr.selected').first();
+                if (!selectedOrderRow.length) return;
+
+                const orderId = selectedOrderRow.children('td').first().text().trim();
+                if (!orderId) return;
+
+                orderDetailsStore[orderId].forEach(r => r.locked = true);
+
+                renderDetailsForOrder(orderId);
+
+                // TODO: проверить роль пользователя (isAdmin) и показать Unlock, если нужно
+            });
+
+            $('#orders-table').resizableColumns({ store: window.store });
             makeColumnsResizable(document.querySelector('.dataTables_scrollHeadInner > table'));
+
+            function renderDetailsForOrder(orderId) {
+                const tbody = document.querySelector('#order-details-table tbody');
+                tbody.innerHTML = '';
+
+                // Если уже есть сохранённые данные для этого заказа — берём их,
+                // иначе создаём по шаблону (sales_price = 0, quantity = 0).
+                const rows = orderDetailsStore[orderId] || itemTemplate.map(it => ({
+                    name: it.name,
+                    model: '',
+                    serial: '',
+                    sales_price: 0,
+                    quantity: 0,
+                    warranty: it.warranty, // число месяцев
+                    input_select: '',
+                    locked: false  // признак «заблокировано после Save»
+                }));
+
+                rows.forEach((r, idx) => {
+                    const tr = document.createElement('tr');
+                    // Если заблокировано — делаем ячейки просто текстом, иначе input.
+                    tr.innerHTML = `
+                      <td>${r.name}</td>
+                      <td>${r.locked ? (r.model || '') : `<input type="text" class="form-control form-control-sm" data-field="model" data-row="${idx}" value="${r.model}">`}</td>
+                      <td>${r.locked ? (r.serial || '') : `<input type="text" class="form-control form-control-sm" data-field="serial" data-row="${idx}" value="${r.serial}">`}</td>
+                      <td>${r.locked ? r.sales_price : `<input type="number" class="form-control form-control-sm" data-field="sales_price" data-row="${idx}" value="${r.sales_price}">`}</td>
+                      <td>${r.locked ? r.quantity : `<input type="number" class="form-control form-control-sm" data-field="quantity" data-row="${idx}" value="${r.quantity}">`}</td>
+                      <td>${r.warranty ? r.warranty + ' month' : ''}</td>
+                      <td>${r.locked ? (r.input_select || '') :
+                        `<input type="text" class="form-control form-control-sm" data-field="input_select" data-row="${idx}" value="${r.input_select}">`}</td>
+    `;
+                    tbody.appendChild(tr);
+                });
+
+                orderDetailsStore[orderId] = rows;
+            }
+
         });
     </script>
 <div class="modal fade" id="stockInModal" tabindex="-1" aria-labelledby="stockInLabel" aria-hidden="true">

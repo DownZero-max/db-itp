@@ -62,7 +62,7 @@
                 <button class="btn btn-outline-primary btn-sm px-0 py-0">+</button>
                 <button class="btn btn-outline-danger btn-sm px-0 py-0">-</button>
                 <button class="btn btn-outline-warning btn-sm px-0 py-0">Undo</button>
-                <button class="btn btn-outline-success btn-sm px-0 py-0">Save</button>
+            <button id="detailsSaveBtn" class="btn btn-outline-success btn-sm px-0 py-0">Save</button>
                 <button class="btn btn-outline-dark btn-sm px-0 py-0">Word</button>
                 <button class="btn btn-outline-info btn-sm px-0 py-0">Guarant.</button>
                 <div class="form-check mt-1">
@@ -85,7 +85,7 @@
                 </div>
 
                 <!-- Центр: текст -->
-                <div class="flex-grow-1 overflow-auto mb-2 w-100" style="min-width: 100%;">
+                <div class="overflow-y-auto mb-2 w-100" style="max-height: 200px; overflow-x: hidden; min-width: 100%;">
                     <table class="table table-bordered table-sm mb-0 text-center align-middle resizable-columns resizable" data-resizable-columns-id="order-details" id="order-details-table" style="width: 100%;">
                         <thead class="table-light">
                         <tr>
