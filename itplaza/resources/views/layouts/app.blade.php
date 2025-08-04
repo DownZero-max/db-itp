@@ -236,7 +236,18 @@
                       <td>${r.locked ? (r.serial || '') : `<input type="text" class="form-control form-control-sm" data-field="serial" data-row="${idx}" value="${r.serial}">`}</td>
                       <td>${r.locked ? r.sales_price : `<input type="number" class="form-control form-control-sm" data-field="sales_price" data-row="${idx}" value="${r.sales_price}">`}</td>
                       <td>${r.locked ? r.quantity : `<input type="number" class="form-control form-control-sm" data-field="quantity" data-row="${idx}" value="${r.quantity}">`}</td>
-                      <td>${r.warranty ? r.warranty + ' month' : ''}</td>
+                      <td>
+                        ${r.locked
+                            ? (r.warranty + ' month')
+                            : `<div class="d-flex align-items-center">
+                                <input type="number"
+                                        class="form-control form-control-sm"
+                                        data-field="warranty"
+                                        data-row="${idx}"
+                                        value="${r.warranty}">
+                                <span class="ms-1">month</span>
+                            </div>`}
+                      </td>
                       <td>${r.locked ? (r.input_select || '') :
                         `<input type="text" class="form-control form-control-sm" data-field="input_select" data-row="${idx}" value="${r.input_select}">`}</td>
     `;
