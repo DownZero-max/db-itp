@@ -167,11 +167,6 @@
                 ]
             });
 
-            table.on('click', 'tbody tr', function() {
-                console.log('Row clicked:', this);
-                alert('Клик пойман!');  // визуальная проверка
-            });
-
             $('#orders-table tbody').on('click', 'tr', function () {
                 $('#orders-table tbody tr').removeClass('selected');
                 $(this).addClass('selected');
