@@ -62,7 +62,7 @@
                 <button class="btn btn-outline-primary btn-sm px-0 py-0">+</button>
                 <button class="btn btn-outline-danger btn-sm px-0 py-0">-</button>
                 <button class="btn btn-outline-warning btn-sm px-0 py-0">Undo</button>
-            <button id="detailsSaveBtn" class="btn btn-outline-success btn-sm px-0 py-0">Save</button>
+                <button id="detailsSaveBtn" class="btn btn-outline-success btn-sm px-0 py-0">Save</button>
                 <button class="btn btn-outline-dark btn-sm px-0 py-0">Word</button>
                 <button class="btn btn-outline-info btn-sm px-0 py-0">Guarant.</button>
                 <div class="form-check mt-1">

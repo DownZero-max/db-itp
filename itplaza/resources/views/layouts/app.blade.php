@@ -100,8 +100,6 @@
     <main class="container-fluid px-0" style="height:90dvh; display: flex; flex-direction: column;">
         @yield('content')
     </main>
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>-->
     <script>
         function makeColumnsResizable(table) {
             const cols = table.querySelectorAll('th');
@@ -156,6 +154,26 @@
                 { name: 'Video card',      warranty: 0  },
                 { name: 'Cables',          warranty: 0  }
             ];
+
+            const nameOptions = [
+                "Accessories", "Accessories DG", "All-in-One Desktops", "Auto Electronics",
+                "Barcode Scaner", "Battery", "Blender", "Cables", "Camera", "Card Reader",
+                "Cartridge", "Case", "CCTV Accessories", "CD disc", "CLEANERS", "Clock",
+                "Combine", "Computer", "Console", "Constructor", "Converter Adapter",
+                "Cooler", "DVD Disc", "DVD-RW", "Fax", "Filament", "Flash USB",
+                "Fotoaparat", "Furniture", "Hairdrier", "HDD", "Headphone", "Headset",
+                "Heraxos", "Holder Monitor & TV", "Iron", "Juicer", "Kettle/թեյնիկ",
+                "Keyboard", "Lamp/Լամպ", "Lan card", "Laptop Screen", "M2 SSD",
+                "Mainboard", "Meat Grinder(msaxac)", "Microphon", "Mixer",
+                "Mobile Accessories", "Monitor", "Mouse", "Netbook", "Network",
+                "NOT & Ext HDD", "NoteBook", "NoteBook D", "NoteBook K", "Payusak",
+                "Perexodnik", "Planshet", "Power Supply", "Printer", "Processor",
+                "Proektor", "Ram", "RAM SODIMM", "Raskulachit", "Ruil", "SATA Cable",
+                "Scales", "Scaner", "Skooter", "Software", "Sound Card", "Speaker",
+                "Toaster", "Tools", "Tuxt A4", "TV", "TV tuner", "UPS", "UTP Cable",
+                "Vacuum Cleaner/Փոշեկուլ", "Video card", "VoIP Equipments", "Waffle Iron",
+                "WebCam", "Work"
+            ];
             const table = $('#orders-table').DataTable({
                 autoWidth: false,
                 paging: false,
@@ -196,12 +214,17 @@
             $('#detailsSaveBtn').on('click', function() {
                 const selectedOrderRow = $('#orders-table tbody tr.selected').first();
                 if (!selectedOrderRow.length) return;
-
                 const orderId = selectedOrderRow.children('td').first().text().trim();
                 if (!orderId) return;
 
-                orderDetailsStore[orderId].forEach(r => r.locked = true);
+                $('#order-details-table tbody tr').each(function(idx) {
+                    const sel = this.querySelector('select[data-field="name"]');
+                    if (sel) {
+                        orderDetailsStore[orderId][idx].name = sel.value;
+                    }
+                })
 
+                orderDetailsStore[orderId].forEach(r => r.locked = true);
                 renderDetailsForOrder(orderId);
 
                 // TODO: проверить роль пользователя (isAdmin) и показать Unlock, если нужно
@@ -214,8 +237,7 @@
                 const tbody = document.querySelector('#order-details-table tbody');
                 tbody.innerHTML = '';
 
-                // Если уже есть сохранённые данные для этого заказа — берём их,
-                // иначе создаём по шаблону (sales_price = 0, quantity = 0).
+
                 const rows = orderDetailsStore[orderId] || itemTemplate.map(it => ({
                     name: it.name,
                     model: '',
@@ -231,7 +253,14 @@
                     const tr = document.createElement('tr');
                     // Если заблокировано — делаем ячейки просто текстом, иначе input.
                     tr.innerHTML = `
-                      <td>${r.name}</td>
+                      <td>
+                        <select class="form-select form-select-sm" data-field="name" data-row="${idx}">
+                            ${nameOptions.map(opt => `
+                            <option value="${opt}"
+                            ${opt === r.name ? 'selected' : ''}>${opt}</option>
+                            `).join('')}
+                        </select>
+                      </td>
                       <td>${r.locked ? (r.model || '') : `<input type="text" class="form-control form-control-sm" data-field="model" data-row="${idx}" value="${r.model}">`}</td>
                       <td>${r.locked ? (r.serial || '') : `<input type="text" class="form-control form-control-sm" data-field="serial" data-row="${idx}" value="${r.serial}">`}</td>
                       <td>${r.locked ? r.sales_price : `<input type="number" class="form-control form-control-sm" data-field="sales_price" data-row="${idx}" value="${r.sales_price}">`}</td>
@@ -257,6 +286,17 @@
                 orderDetailsStore[orderId] = rows;
             }
 
+            $('#order-details-table tbody').on('change', 'select[data-field="name"]', function() {
+                const newName = this.value;
+                const rowIndex = parseInt(this.dataset.row, 10);
+
+                const $selRow = $('#orders-table tbody tr.selected').first();
+                if (!$selRow.length) return;
+                const orderId = $selRow.find('td').first().text().trim();
+                if (!orderId) return;
+
+                orderDetailsStore[orderId][rowIndex].name = newName;
+            });
         });
     </script>
 <div class="modal fade" id="stockInModal" tabindex="-1" aria-labelledby="stockInLabel" aria-hidden="true">
