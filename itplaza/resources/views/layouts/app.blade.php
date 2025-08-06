@@ -227,7 +227,7 @@
                 orderDetailsStore[orderId].forEach(r => r.locked = true);
                 renderDetailsForOrder(orderId);
 
-                // TODO: проверить роль пользователя (isAdmin) и показать Unlock, если нужно
+                // проверить роль пользователя (isAdmin) и показать Unlock, если нужно
             });
 
             $('#orders-table').resizableColumns({ store: window.store });
@@ -253,13 +253,23 @@
                     const tr = document.createElement('tr');
                     // Если заблокировано — делаем ячейки просто текстом, иначе input.
                     tr.innerHTML = `
-                      <td>
+                      <!--<td>
                         <select class="form-select form-select-sm" data-field="name" data-row="${idx}">
                             ${nameOptions.map(opt => `
                             <option value="${opt}"
                             ${opt === r.name ? 'selected' : ''}>${opt}</option>
                             `).join('')}
                         </select>
+                      </td>-->
+                      <td>
+                        ${r.locked
+                            ? r.name
+                            : `<select class="form-select form-select-sm" data-field="name" data-row="${idx}">
+                                ${nameOptions.map(opt => `
+                                    <option value="${opt}" ${opt === r.name ? 'selected' : ''}>${opt}</option>
+                                `).join('')}
+                               </select>`
+                         }
                       </td>
                       <td>${r.locked ? (r.model || '') : `<input type="text" class="form-control form-control-sm" data-field="model" data-row="${idx}" value="${r.model}">`}</td>
                       <td>${r.locked ? (r.serial || '') : `<input type="text" class="form-control form-control-sm" data-field="serial" data-row="${idx}" value="${r.serial}">`}</td>
