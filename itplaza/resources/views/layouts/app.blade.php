@@ -182,16 +182,19 @@
                 columnDefs: [
                     { width: '80px', targets: 0 },
                     { width: '120px', targets: 1 }
-                ]
+                ],
+                rowCallback: function(row,data) {
+                    // data[0] - это значение в первой ячейке (ID заказа)
+                    $(row).attr('data-order-id', data[0]);
+                }
             });
 
             $('#orders-table tbody').on('click', 'tr', function () {
                 $('#orders-table tbody tr').removeClass('selected');
                 $(this).addClass('selected');
 
-                const orderId = $(this).children('td').first().text().trim();
+                const orderId = $(this).data('orderId');
                 if (!orderId) return;
-
                 renderDetailsForOrder(orderId);
             });
 
@@ -214,7 +217,9 @@
             $('#detailsSaveBtn').on('click', function() {
                 const selectedOrderRow = $('#orders-table tbody tr.selected').first();
                 if (!selectedOrderRow.length) return;
-                const orderId = selectedOrderRow.children('td').first().text().trim();
+
+                //const orderId = selectedOrderRow.children('td').first().text().trim();
+                const orderId = selectedOrderRow.data('orderId');
                 if (!orderId) return;
 
                 $('#order-details-table tbody tr').each(function(idx) {
@@ -227,7 +232,6 @@
                 orderDetailsStore[orderId].forEach(r => r.locked = true);
                 renderDetailsForOrder(orderId);
 
-                // проверить роль пользователя (isAdmin) и показать Unlock, если нужно
             });
 
             $('#orders-table').resizableColumns({ store: window.store });

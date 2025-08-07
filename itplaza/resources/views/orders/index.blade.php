@@ -33,8 +33,8 @@
                 </thead>
                 <tbody>
                 @foreach($orders as $order)
-                    <tr>
-                        <td>{{ $order->id }}</td>
+                    <tr data-order-id="{{ $loop->iteration }}">
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $order->date }}</td>
                         <td>{{ $order->date_completed }}</td>
                         <td>{{ $order->name }}</td>
@@ -304,7 +304,9 @@
 
             // Подсчет нового ID
             const tableBody = document.querySelector('#orders-table tbody');
-            const nextId = tableBody.rows.length + 1;
+            //const nextId = tableBody.rows.length + 1;
+            const existingIds = Array.from(tableBody.rows).map(r => parseInt(r.cells[0].innerText, 10) || 0);
+            const nextId = Math.max(...existingIds, 0) + 1;
 
             const tr = document.createElement('tr');
             tr.innerHTML = `
