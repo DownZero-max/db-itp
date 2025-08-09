@@ -198,6 +198,11 @@
                 renderDetailsForOrder(orderId);
             });
 
+            $('#order-details-table tbody').on('click', 'tr', function () {
+                $('#order-details-table tbody tr').removeClass('selected');
+                $(this).addClass('selected');
+            });
+
             $('#order-details-table tbody').on('input', 'input[data-field]', function() {
                 const field = this.dataset.field;
                 const rowIndex = parseInt(this.dataset.row, 10);

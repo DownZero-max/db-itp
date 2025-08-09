@@ -253,6 +253,10 @@
         white-space: nowrap;
         }
 
+    #order-details-table tbody tr.selected td {
+        background-color: #cce5ff !important;
+    }
+
     .flex-grow-1.overflow-auto.mb-2 {
         width: 100% !important;
     }
