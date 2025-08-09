@@ -219,6 +219,34 @@
                 }
             });
 
+            $('#detailsAddRowBtn').on('click', function () {
+                const selectedOrderRow = $('#orders-table tbody tr.selected').first();
+                if (!selectedOrderRow.length) return;
+
+                const orderId = selectedOrderRow.data('orderId');
+                if (!orderId) return;
+
+                if(!orderDetailsStore[orderId]) {
+                   orderDetailsStore[orderId] = [];
+                }
+
+                orderDetailsStore[orderId].push({
+                    name: '',
+                    model: '',
+                    serial: '',
+                    sales_price: 0,
+                    quantity: 0,
+                    warranty: 0,
+                    input_select: '',
+                    locked: false
+                });
+
+                renderDetailsForOrder(orderId);
+
+                $('#order-details-table tbody tr').removeClass('selected');
+                $('#order-details-table tbody tr:last').addClass('selected');
+            });
+
             $('#detailsSaveBtn').on('click', function() {
                 const selectedOrderRow = $('#orders-table tbody tr.selected').first();
                 if (!selectedOrderRow.length) return;
@@ -272,13 +300,14 @@
                       </td>-->
                       <td>
                         ${r.locked
-                            ? r.name
+                            ? (r.name || '')
                             : `<select class="form-select form-select-sm" data-field="name" data-row="${idx}">
-                                ${nameOptions.map(opt => `
+                                 <option value="" ${r.name === '' ? 'selected' : ''}>— select —</option>
+                                 ${nameOptions.map(opt => `
                                     <option value="${opt}" ${opt === r.name ? 'selected' : ''}>${opt}</option>
-                                `).join('')}
+                                 `).join('')}
                                </select>`
-                         }
+                        }
                       </td>
                       <td>${r.locked ? (r.model || '') : `<input type="text" class="form-control form-control-sm" data-field="model" data-row="${idx}" value="${r.model}">`}</td>
                       <td>${r.locked ? (r.serial || '') : `<input type="text" class="form-control form-control-sm" data-field="serial" data-row="${idx}" value="${r.serial}">`}</td>

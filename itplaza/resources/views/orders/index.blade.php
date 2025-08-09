@@ -59,7 +59,7 @@
         <div style="width: 90px;" class="d-flex flex-column gap-0">
                 <input type="text" class="form-control form-control-sm px-0 py-0" placeholder="barcode">
                 <button class="btn btn-outline-secondary btn-sm px-0 py-0">...</button>
-                <button class="btn btn-outline-primary btn-sm px-0 py-0">+</button>
+                <button id="detailsAddRowBtn" class="btn btn-outline-primary btn-sm px-0 py-0">+</button>
                 <button class="btn btn-outline-danger btn-sm px-0 py-0">-</button>
                 <button class="btn btn-outline-warning btn-sm px-0 py-0">Undo</button>
                 <button id="detailsSaveBtn" class="btn btn-outline-success btn-sm px-0 py-0">Save</button>
